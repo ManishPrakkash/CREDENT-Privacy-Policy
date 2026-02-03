@@ -43,52 +43,59 @@
 <body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white transition-colors duration-200">
 <!-- Sticky Header -->
 <header class="sticky top-0 z-50 w-full border-b border-solid border-[#f0f2f4] dark:border-[#2d3748] bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
-<div class="mx-auto max-w-[1280px] flex items-center justify-between px-10 py-3">
+<div class="mx-auto max-w-[1280px] flex items-center justify-between px-4 md:px-10 py-3">
 <div class="flex items-center gap-4 text-[#111418] dark:text-white">
-<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] font-display">CREDENT</h2>
-</div>
-<div class="flex items-center gap-4">
-<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
-<span class="truncate">Back to App</span>
+<button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined">menu</span>
 </button>
+<img src="adaptive-icon.jpg" alt="CREDENT Logo" class="w-10 h-10 rounded-xl object-cover"/>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] font-display">CREDENT</h2>
 </div>
 </div>
 </header>
 <main class="mx-auto max-w-[1280px] px-4 md:px-10 py-10">
 <div class="flex flex-col lg:flex-row gap-12">
-<!-- Sidebar Navigation (Sticky) -->
-<aside class="hidden lg:block w-72 shrink-0 h-fit sticky top-24">
+<!-- Sidebar Navigation -->
+<aside id="mobile-menu" class="fixed lg:static inset-0 z-40 lg:z-auto bg-black/50 lg:bg-transparent hidden lg:block transition-all">
+<div class="absolute lg:static lg:sticky lg:top-24 right-0 top-0 h-full lg:h-fit w-80 lg:w-72 bg-white dark:bg-background-dark lg:bg-transparent p-6 lg:p-0 overflow-y-auto lg:overflow-visible shadow-xl lg:shadow-none">
+<div class="flex items-center justify-between lg:hidden mb-6">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold">Menu</h3>
+<button id="close-menu-btn" class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
 <div class="flex flex-col gap-4">
 <div class="flex flex-col mb-2">
 <h3 class="text-[#111418] dark:text-white text-base font-bold leading-normal">Table of Contents</h3>
 <p class="text-[#617589] dark:text-gray-400 text-sm font-normal">Jump to section</p>
 </div>
 <nav class="flex flex-col gap-1">
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary group" href="#introduction">
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-[#111418] dark:text-gray-300 transition-colors" href="#introduction" data-section="introduction">
 <span class="material-symbols-outlined text-[20px]">info</span>
 <p class="text-sm font-medium">1. Introduction</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-[#111418] dark:text-gray-300 transition-colors" href="#data-collection">
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-[#111418] dark:text-gray-300 transition-colors" href="#data-collection" data-section="data-collection">
 <span class="material-symbols-outlined text-[20px]">database</span>
 <p class="text-sm font-medium">2. Data Collection</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-[#111418] dark:text-gray-300 transition-colors" href="#usage">
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-[#111418] dark:text-gray-300 transition-colors" href="#usage" data-section="usage">
 <span class="material-symbols-outlined text-[20px]">monitoring</span>
 <p class="text-sm font-medium">3. Usage of Data</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-[#111418] dark:text-gray-300 transition-colors" href="#security">
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-[#111418] dark:text-gray-300 transition-colors" href="#security" data-section="security">
 <span class="material-symbols-outlined text-[20px]">shield_lock</span>
 <p class="text-sm font-medium">4. Security Measures</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-[#111418] dark:text-gray-300 transition-colors" href="#rights">
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-[#111418] dark:text-gray-300 transition-colors" href="#rights" data-section="rights">
 <span class="material-symbols-outlined text-[20px]">person_check</span>
 <p class="text-sm font-medium">5. User Rights</p>
 </a>
-<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-[#111418] dark:text-gray-300 transition-colors" href="#cookies">
+<a class="nav-link flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 text-[#111418] dark:text-gray-300 transition-colors" href="#cookies" data-section="cookies">
 <span class="material-symbols-outlined text-[20px]">cookie</span>
 <p class="text-sm font-medium">6. Cookies &amp; Tracking</p>
 </a>
 </nav>
+</div>
 </div>
 </aside>
 <!-- Main Content Area -->
@@ -414,11 +421,7 @@ By using CREDENT, you consent to our Privacy Policy and agree to its terms.
 </div>
 <!-- Contact Footer -->
 <div class="mt-24 pt-10 border-t border-gray-200 dark:border-gray-800 flex flex-col items-center text-center gap-6">
-<div class="size-10 text-primary/40">
-<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M6 6H42L36 24L42 42H6L12 24L6 6Z"></path>
-</svg>
-</div>
+<img src="adaptive-icon.jpg" alt="CREDENT Logo" class="w-16 h-16 rounded-2xl object-cover"/>
 <div class="max-w-md">
 <h4 class="text-lg font-bold">Contact Us</h4>
 <p class="text-gray-500 dark:text-gray-400 text-sm mt-2">If you have questions or concerns about this Privacy Policy, please contact us:</p>
@@ -437,4 +440,93 @@ By using CREDENT, you consent to our Privacy Policy and agree to its terms.
 <button class="fixed bottom-6 right-6 lg:hidden bg-primary text-white size-12 rounded-full shadow-lg flex items-center justify-center" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
 <span class="material-symbols-outlined">arrow_upward</span>
 </button>
+<script>
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const closeMenuBtn = document.getElementById('close-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = mobileMenu.querySelectorAll('nav a');
+
+function openMenu() {
+    mobileMenu.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeMenu() {
+    mobileMenu.classList.add('hidden');
+    document.body.style.overflow = '';
+}
+
+mobileMenuBtn?.addEventListener('click', openMenu);
+closeMenuBtn?.addEventListener('click', closeMenu);
+
+// Close menu when clicking outside
+mobileMenu?.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) {
+        closeMenu();
+    }
+});
+
+// Close menu when clicking nav links
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+            closeMenu();
+        }
+    });
+});
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Active section highlighting
+const sections = document.querySelectorAll('section[id]');
+const navLinkElements = document.querySelectorAll('.nav-link');
+
+function setActiveLink(sectionId) {
+    navLinkElements.forEach(link => {
+        const linkSection = link.getAttribute('data-section');
+        if (linkSection === sectionId) {
+            link.classList.remove('hover:bg-gray-100', 'dark:hover:bg-gray-800', 'text-[#111418]', 'dark:text-gray-300');
+            link.classList.add('bg-primary/10', 'text-primary');
+        } else {
+            link.classList.add('hover:bg-gray-100', 'dark:hover:bg-gray-800', 'text-[#111418]', 'dark:text-gray-300');
+            link.classList.remove('bg-primary/10', 'text-primary');
+        }
+    });
+}
+
+// Detect active section on scroll
+function updateActiveSection() {
+    let currentSection = 'introduction';
+    const scrollPosition = window.scrollY + 100;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+
+    setActiveLink(currentSection);
+}
+
+// Update on scroll
+window.addEventListener('scroll', updateActiveSection);
+// Set initial active section
+setActiveLink('introduction');
+</script>
 </body></html>
